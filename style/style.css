@@ -1,0 +1,26 @@
+table td.white {
+    border: 1px solid #fff;
+}
+
+table td.green {
+    border: 1px solid #00ff00;
+}
+
+table td.yellow {
+    border: 1px solid #f7ff00;
+}
+
+table td.red {
+    border: 1px solid #ff4040;
+}
+
+table td.loopWarning {
+    border: 1px solid #ff4040;
+    background-color: #ff4040;
+    color: #fff;
+}
+
+table td {
+    padding: 20px;
+    font-size: 15px;
+}
