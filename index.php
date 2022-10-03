@@ -5,7 +5,7 @@ include 'templates/header.html';
 include 'templates/content.html';
 
 if (isset($_POST['pagesToCheck'])) {
-    $curl = new Curl();
+    //$curl = new Curl();
     
     $pagesArray = explode(PHP_EOL, $_POST['pagesToCheck']);
 
