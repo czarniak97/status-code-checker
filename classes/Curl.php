@@ -26,6 +26,7 @@ class Curl
             curl_setopt_array($this->handler, [CURLOPT_URL => $this->url, CURLOPT_HEADER => true, CURLOPT_NOBODY => true, CURLOPT_RETURNTRANSFER => 1, CURLOPT_SSL_VERIFYPEER => false]);
             $this->content = curl_exec($this->handler);
             $this->info = curl_getinfo($this->handler);
+            echo $this->info;
 
         } catch (Exception $e) {
             die($e->getMessage());
