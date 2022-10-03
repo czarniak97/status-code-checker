@@ -23,10 +23,12 @@ class Curl
     public function sendRequest()
     {
         try {
-            curl_setopt_array($this->handler, [CURLOPT_URL => $this->url, CURLOPT_HEADER => true, CURLOPT_NOBODY => true]);
+            curl_setopt_array($this->handler, [CURLOPT_URL => $this->url, CURLOPT_HEADER => true, CURLOPT_NOBODY => true, CURLOPT_RETURNTRANSFER => 1, CURLOPT_SSL_VERIFYPEER => false]);
             $this->content = curl_exec($this->handler);
             $this->info = curl_getinfo($this->handler);
-
+            if (curl_errno($this->handler)) { 
+               print curl_error($this->handler); 
+            } 
         } catch (Exception $e) {
             die($e->getMessage());
         }
