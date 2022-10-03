@@ -1,6 +1,7 @@
 <?php
 function pageCheck($curl, $page, $delimiter)
 {
+    $curl = new Curl();
     $curl->url($page)
         ->openConnection();
     $curl->sendRequest();
