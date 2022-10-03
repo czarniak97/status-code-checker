@@ -11,8 +11,6 @@ if (isset($_POST['pagesToCheck'])) {
 
     echo '<table>';
     foreach ($pagesArray as $page) {
-        curl_getinfo($curl);
-
         $delimiter = 0;
         echo '<tr>';
         pageCheck($curl, $page, $delimiter);
