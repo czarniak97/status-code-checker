@@ -35,7 +35,7 @@ function pageCheck($page, $delimiter)
 
     if ($info['http_code'] >= 300 && $info['http_code'] < 400) {
         $delimiter++;
-        pageCheck($curl, $info['redirect_url'], $delimiter);
+        pageCheck($info['redirect_url'], $delimiter);
     }
     curl_close($curl);
 }
