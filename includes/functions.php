@@ -24,8 +24,11 @@ function pageCheck($page, $delimiter)
     $curl = curl_init();
     curl_setopt_array($curl, [CURLOPT_URL => $page, CURLOPT_HEADER => true, CURLOPT_NOBODY => true, CURLOPT_RETURNTRANSFER => 1, CURLOPT_SSL_VERIFYPEER => false]);
     curl_exec($curl);
+    if (curl_errno($curl)) {
+        $error_msg = curl_error($curl);
+    }
     $info = curl_getinfo($curl);
-    
+    echo '<h2>' . $error_msg . '</h2>';
     $columnColor = getColumnColor($info['http_code']);
 
     echo '<td class="' . $columnColor . '" >' . $info['url'] . '</td>';
