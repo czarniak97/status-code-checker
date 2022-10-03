@@ -10,7 +10,7 @@ include 'templates/content.html';
 
 if (isset($_POST['pagesToCheck'])) {
     $curl = new Curl();
-
+    echo $curl;
     $pagesArray = explode(PHP_EOL, $_POST['pagesToCheck']);
 
     echo '<table>';
