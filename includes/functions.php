@@ -2,12 +2,13 @@
 function pageCheck($curl, $page, $delimiter)
 {
     echo $page;
-    $info = curl_getinfo($curl);
-    echo $info;
+
     $curl->url($page)
         ->openConnection();
     $curl->sendRequest();
+    
     echo '<pre>' . var_export($curl->info, true) . '</pre>';
+    
     $columnColor = getColumnColor($curl->info['http_code']);
 
     echo '<td class="' . $columnColor . '" >' . $curl->info['url'] . '</td>';
