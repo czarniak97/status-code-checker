@@ -37,6 +37,7 @@ function pageCheck($curl, $page, $delimiter)
         $delimiter++;
         pageCheck($curl, info['redirect_url'], $delimiter);
     }
+    curl_close($curl);
 }
 function getColumnColor($httpCode)
 {
