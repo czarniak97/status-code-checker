@@ -6,7 +6,7 @@ include 'templates/content.html';
 
 if (isset($_POST['pagesToCheck'])) {
     //$curl = new Curl();
-    
+    $curl = '';
     $pagesArray = explode(PHP_EOL, $_POST['pagesToCheck']);
 
     echo '<table>';
@@ -17,7 +17,7 @@ if (isset($_POST['pagesToCheck'])) {
         echo '</tr>';
     }
     echo '</table>';
-    $curl->closeConnection();
+    //$curl->closeConnection();
 }
 
 include 'templates/footer.html';
