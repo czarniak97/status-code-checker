@@ -1,4 +1,5 @@
 <?php
+/*
 function pageCheck($curl, $page, $delimiter)
 {
     $curl->url($page)
@@ -17,8 +18,26 @@ function pageCheck($curl, $page, $delimiter)
         $delimiter++;
         pageCheck($curl, $curl->info['redirect_url'], $delimiter);
     }
-}
+}*/
+function pageCheck($curl, $page, $delimiter)
+{
+    $curl = curl_init();
+    curl_setopt_array($curl, [CURLOPT_URL => $page, CURLOPT_HEADER => true, CURLOPT_NOBODY => true, CURLOPT_RETURNTRANSFER => 1, CURLOPT_SSL_VERIFYPEER => false]);
+    $curl = curl_exec($curl);
+    
+    $columnColor = getColumnColor($curl->info['http_code']);
 
+    echo '<td class="' . $columnColor . '" >' . $curl->info['url'] . '</td>';
+    echo '<td class="' . $columnColor . '" >' . $curl->info['http_code'] . '</td>';
+
+    if ($delimiter > 4)
+        echo '<td class="loopWarning" >Prawdopodobna pętla przekierowań</td>';
+
+    if ($curl->info['http_code'] >= 300 && $curl->info['http_code'] < 400) {
+        $delimiter++;
+        pageCheck($curl, $curl->info['redirect_url'], $delimiter);
+    }
+}
 function getColumnColor($httpCode)
 {
     if ($httpCode >= 200 && $httpCode < 300)
