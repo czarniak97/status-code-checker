@@ -4,10 +4,7 @@ function pageCheck($curl, $page, $delimiter)
     $curl->url($page)
         ->openConnection();
     $curl->sendRequest();
-    if($curl->sendRequest())
-        echo 'jest ok';
-    else 
-        echo 'nie jest ok';
+    var_dump($curl->info);
     $columnColor = getColumnColor($curl->info['http_code']);
 
     echo '<td class="' . $columnColor . '" >' . $curl->info['url'] . '</td>';
