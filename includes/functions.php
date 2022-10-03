@@ -23,7 +23,8 @@ function pageCheck($page, $delimiter)
 {
     $curl = curl_init();
     curl_setopt_array($curl, [CURLOPT_URL => $page, CURLOPT_HEADER => true, CURLOPT_NOBODY => true, CURLOPT_RETURNTRANSFER => 1, CURLOPT_SSL_VERIFYPEER => false]);
-    $info = curl_exec($curl);
+    curl_exec($curl);
+    $info = curl_getinfo($curl);
     
     $columnColor = getColumnColor($info['http_code']);
 
