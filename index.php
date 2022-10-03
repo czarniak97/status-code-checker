@@ -4,6 +4,10 @@ include 'includes/functions.php';
 include 'templates/header.html';
 include 'templates/content.html';
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (isset($_POST['pagesToCheck'])) {
     $curl = new Curl();
 
