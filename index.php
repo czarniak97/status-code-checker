@@ -15,7 +15,7 @@ if (isset($_POST['pagesToCheck'])) {
         echo '<tr>';
         pageCheck($curl, $page, $delimiter);
         echo '</tr>';
-        $curl->closeConnection();
+        //$curl->closeConnection();
     }
     echo '</table>';
 
