@@ -1,5 +1,5 @@
 <?php
-include 'classes/Curl.php';
+//include 'classes/Curl.php';
 include 'includes/functions.php';
 include 'templates/header.html';
 include 'templates/content.html';
