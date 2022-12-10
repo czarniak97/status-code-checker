@@ -62,7 +62,7 @@ function pageCheck($page, $delimiter)
         $delimiter++;
         pageCheck($info['redirect_url'], $delimiter);
     }*/
-    echo 'test';
+    echo 'test'; 
 }
 
 function getColumnColor($httpCode)
