@@ -45,7 +45,7 @@ function pageCheck($page, $delimiter)
     curl_close($curl);
 }*/
 function pageCheck($page, $delimiter)
-{
+{/*
     $info = [];
     $headers = get_headers($page);
     $info['http_code'] = substr($headers[0], 9, 3);
@@ -61,7 +61,8 @@ function pageCheck($page, $delimiter)
     if ($info['http_code'] >= 300 && $info['http_code'] < 400) {
         $delimiter++;
         pageCheck($info['redirect_url'], $delimiter);
-    }
+    }*/
+    echo 'test';
 }
 
 function getColumnColor($httpCode)
