@@ -49,6 +49,7 @@ function pageCheck($page, $delimiter)
     $info = [];
     $headers = get_headers($page);
     $info['http_code'] = substr($headers[0], 9, 3);
+    $info['url'] = $page;
     $columnColor = getColumnColor($info['http_code']);
 
     echo '<td class="' . $columnColor . '" >' . $info['url'] . '</td>';
