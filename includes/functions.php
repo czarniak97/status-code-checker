@@ -19,6 +19,7 @@ function pageCheck($curl, $page, $delimiter)
         pageCheck($curl, $curl->info['redirect_url'], $delimiter);
     }
 }*/
+/*
 function pageCheck($page, $delimiter)
 {
     $curl = curl_init();
@@ -42,7 +43,27 @@ function pageCheck($page, $delimiter)
         pageCheck($info['redirect_url'], $delimiter);
     }
     curl_close($curl);
+}*/
+function pageCheck($page, $delimiter)
+{
+    $info = [];
+    $headers = get_headers($page);
+    $info['http_code'] = substr($headers[0], 9, 3);
+    $columnColor = getColumnColor($info['http_code']);
+
+    echo '<td class="' . $columnColor . '" >' . $info['url'] . '</td>';
+    echo '<td class="' . $columnColor . '" >' . $info['http_code'] . '</td>';
+
+    if ($delimiter > 4)
+        echo '<td class="loopWarning" >Prawdopodobna pętla przekierowań</td>';
+
+    if ($info['http_code'] >= 300 && $info['http_code'] < 400) {
+        $delimiter++;
+        pageCheck($info['redirect_url'], $delimiter);
+    }
+    curl_close($curl);
 }
+
 function getColumnColor($httpCode)
 {
     if ($httpCode >= 200 && $httpCode < 300)
