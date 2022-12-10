@@ -15,7 +15,6 @@ if (isset($_POST['pagesToCheck'])) {
         echo '</tr>';
     }
     echo '</table>';
-    //$curl->closeConnection();
 }
 
 include 'templates/footer.html';
